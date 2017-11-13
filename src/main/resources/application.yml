@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: gateway
+
+server:
+  port: 2003
+
+eureka:
+  client:
+    service-url:
+       defaultZone: http://eureka.didispace.com/eureka/
+  instance:
+    # 注册时使用ip而不是主机名
+    prefer-ip-address: true
+    # 注册名称显示IP和Port
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+
+
